@@ -10,7 +10,24 @@ const tutorials = [
   'what is the difference between event capturing and bubbling?',
   'what is JSONP?'
 ];
+function titleCased() {
+  // Check if the 'tutorials' array exists
+  if (!Array.isArray(tutorials)) {
+    throw new Error('The tutorials array is not defined.');
+  }
 
-const titleCased = () => {
-  return tutorials
+  // Iterate through each tutorial name in the array
+  return tutorials.map(tutorial => {
+    // Split the tutorial name into an array of words
+    const words = tutorial.split(' ');
+
+    // Capitalize the first letter of each word
+    const titleCaseWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+
+    // Join the title case words back into a string
+    const titleCaseTutorial = titleCaseWords.join(' ');
+
+    return titleCaseTutorial;
+  });
 }
+
